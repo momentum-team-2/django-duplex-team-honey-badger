@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w-33 pa3">
+  <h2>{{ snippet.title }}</h2>
+
+
+  {% if snippet.code %}
+  <div class="flex">
+    <div class="pr2"><i class="icofont-phone"></i></div>
+    <div>{{ snippet.code }}</div>
+  </div>
+  {% endif %}
+
+  {% if snippet.description %}
+  <div class="flex">
+    <div class="pr2"><i class="icofont-ui-email"></i></div>
+    <div>{{ snippet.description }}</div>
+  </div>
+  {% endif %}
+
+  {% if snippet.language %}
+  <div class="flex">
+    <div class="pr2"><i class="icofont-ui-email"></i></div>
+    <div>{{ snippet.language }}</div>
+  </div>
+  {% endif %}
+
+  {% if snippet.date_added %}
+  <div class="flex">
+    <div class="pr2"><i class="icofont-ui-email"></i></div>
+    <div>{{ snippet.date_added }}</div>
+  </div>
+  {% endif %}
+
+  <p>
+    <a href="{% url 'edit_snippet' pk=snippet.pk %}">Edit Snippet</a><br>
+    <a class="red" href="{% url 'delete_snippet' pk=snippet.pk %}">Delete Snippet</a>
+  </p>
+</div>
+{% endblock %}
