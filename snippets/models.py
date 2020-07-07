@@ -7,3 +7,4 @@ class Snippet(models.Model):
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=500)   
     date_added = models.DateField(null=True, blank=True)
+    # public/private
