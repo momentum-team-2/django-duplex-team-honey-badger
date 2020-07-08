@@ -40,6 +40,13 @@
     </div>
     {% endif %}
 
+    {% if snippet.user %}
+    <div class="flex">
+      <div class="pr2"><i class="icofont-ui-email"></i></div>
+      <div>{{ snippet.user }}</div>
+    </div>
+    {% endif %}
+
     <p>
       <a href="{% url 'edit_snippet' pk=snippet.pk %}">Edit Snippet</a><br>
       <a class="red" href="{% url 'delete_snippet' pk=snippet.pk %}">Delete Snippet</a>
