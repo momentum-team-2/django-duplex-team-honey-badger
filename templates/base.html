@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Snippets</title>
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="sans-serif pv3 ph2">
-  <nav class="flex justify-end bb bg-black b--white-10">
+  <nav class="flex justify-end bb bg-light-blue b--white-10">
     <div class="flex-grow pa3 flex items-center">
       {% if user.is_authenticated %}
       <p class="mr4 serif i white">You are logged in as {{ user.username }}</p>

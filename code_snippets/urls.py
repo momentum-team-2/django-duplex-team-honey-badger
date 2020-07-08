@@ -23,11 +23,13 @@ urlpatterns = [
     path('', snippets_views.home, name="home"),
     path('snippets/', snippets_views.list_snippets, name='list_snippets'),
     path('snippets/add/', snippets_views.add_snippet, name='add_snippet'),
+    path('snippets/<int:pk>/copy/', snippets_views.copy_snippet, name='copy_snippet'),
     path('snippets/<int:pk>/edit/', snippets_views.edit_snippet, name='edit_snippet'),
     path('snippets/<int:pk>/delete/', snippets_views.delete_snippet, name='delete_snippet'),
     path('snippets/<int:pk>/', snippets_views.show_snippet, name='show_snippet'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
+    path('accounts/profile/', snippets_views.profile, name='profile'),
 ]
 
 if settings.DEBUG:

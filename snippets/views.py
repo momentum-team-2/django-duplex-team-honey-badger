@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Snippet
 from .forms import SnippetForm
 from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView, ListView
+
 
 def home(request):
     if request.user.is_authenticated:
@@ -50,3 +52,19 @@ def delete_snippet(request, pk):
         return redirect(to='list_snippets')
     
     return render(request, 'snippets/delete_snippet.html', {'snippet': snippet})
+
+def copy_snippet (request, pk):
+    original_snippet = get_object_or_404(Snippet, pk=pk)
+    copied_snippet = Snippet()
+    copied_snippet.title = original_snippet.title
+    copied_snippet.language = original_snippet.language
+    copied_snippet.code = original_snippet.code
+    copied_snippet.description = original_snippet.description
+    copied_snippet.user = request.user
+    copied_snippet.original_snippet = original_snippet
+    copied_snippet.save()
+    return redirect(to='list_snippets')
+
+
+def profile (request):
+    return render(request, 'snippets/profile.html')
