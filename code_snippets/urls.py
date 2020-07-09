@@ -30,6 +30,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
     path('accounts/profile/', snippets_views.profile, name='profile'),
+    path('', include('snippets.urls'))
+    
 ]
 
 if settings.DEBUG:

@@ -68,3 +68,14 @@ def copy_snippet (request, pk):
 
 def profile (request):
     return render(request, 'snippets/profile.html')
+
+def SerchResultsView(ListView)
+    model = Snippet
+    template_name = 'search_results.html'
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Snippet
+from .forms import SnippetForm
+from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView, ListView
+
+
