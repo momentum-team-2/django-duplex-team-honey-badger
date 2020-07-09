@@ -3,12 +3,13 @@ from .models import Snippet
 from .forms import SnippetForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView, ListView
+from django_gravatar.helpers import get_gravatar_url, has_gravatar, get_gravatar_profile_url, calculate_gravatar_hash
+
 
 
 def home(request):
     if request.user.is_authenticated:
         return redirect('list_snippets')
-
     return render(request, 'snippets/home.html')
 
 @login_required
@@ -67,4 +68,8 @@ def copy_snippet (request, pk):
 
 
 def profile (request):
+    # url = get_gravatar_url(request.user.email, size=150)
+    # gravatar_exists = has_gravatar('bob@example.com')
+    # profile_url = get_gravatar_profile_url('alice@example.com')
+    # email_hash = calculate_gravatar_hash('alice@example.com')
     return render(request, 'snippets/profile.html')

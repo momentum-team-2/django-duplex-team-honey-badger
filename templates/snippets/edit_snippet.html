@@ -8,7 +8,8 @@
     {% csrf_token %}
     {{ form.as_p }}
     <div>
-      <button type="submit">Update Snippet</button>
+      <button type="submit">Update Snippet</button><br>
+      <br><a class="red" href="{% url 'list_snippets' %}">Snippets List</a><br>
     </div>
   </form>
 </div>
