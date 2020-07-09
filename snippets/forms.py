@@ -10,6 +10,4 @@ class SnippetForm(forms.ModelForm):
             'code',
             'language',
             'description',
-            'date_added',
-            'user',
         ]

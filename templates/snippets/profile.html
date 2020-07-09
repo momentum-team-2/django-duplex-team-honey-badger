@@ -3,20 +3,18 @@
 {% block content %}
 <h1>Profile of {{ user.username }}</h1>
 {% load gravatar %}
-<!-- <a href={% gravatar_url user.email 100 %}></a> -->
-<!-- # https://secure.gravatar.com/avatar/hash.jpg?size=150 -->
-
-<!-- {% gravatar user.email 100 %} -->
-<!-- # <img class="gravatar" src="https://secure.gravatar.com/avatar/hash.jpg?size=150" width="150" height="150" alt="" /> -->
 
 {% gravatar user.email 100 "user@example.com" %}
-<!-- # <img class="gravatar" src="https://secure.gravatar.com/avatar/hash.jpg?size=150" width="150" height="150" alt="user@example.com" /> -->
 
-<!-- {% gravatar_profile_url user.email %} -->
-<!-- # https://secure.gravatar.com/hash -->
 <br>
+{% for snippet in user.snippets.all %}
+<!-- <a href="{% url 'show_snippet' pk=snippet.pk %}">
+    <h2>{{ snippet.title }}</h2>
+</a> -->
+{% include "snippets/snippet_partial.html" with snippet=snippet %}
+{% endfor %}
 
-<a class="red" href="{% url 'list_snippets' %}">Snippets List</a><br>
+<br><a class="red" href="{% url 'list_snippets' %}">Snippets List</a><br>
 
 
 
