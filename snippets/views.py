@@ -29,7 +29,9 @@ def add_snippet(request):
     else:
         form = SnippetForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            snippet = form.instance
+            snippet.user = request.user
+            snippet.save()
             return redirect(to='list_snippets')
 
     return render(request, 'snippets/add_snippet.html', {'form': form})

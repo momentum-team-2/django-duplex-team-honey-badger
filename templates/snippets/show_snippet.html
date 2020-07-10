@@ -41,8 +41,12 @@
   </div>
   {% endif %}
 
-  <button class="btn" data-clipboard-text="{{  snippet.code  }}">
-    Copy to clipboard
+  <p>
+    Copied {{ snippet.copied_snippets.count }} time(s)
+  </p>
+
+  <br><button class="btn" data-clipboard-text="{{  snippet.code  }}">
+    Copy code to clipboard
   </button>
   <script> 
     var clip = new ClipboardJS('.btn'); 
