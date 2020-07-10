@@ -6,4 +6,6 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    <form action="{% url 'search_snippets' %} "class="list-sort-button second" method="get">
+            <input name="search_string" type="text" placeholder="Search here">
+    </form>

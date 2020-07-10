@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Snippet
 from .forms import SnippetForm
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView
 
 
 def home(request):
@@ -69,13 +69,11 @@ def copy_snippet (request, pk):
 def profile (request):
     return render(request, 'snippets/profile.html')
 
-def SerchResultsView(ListView)
+def search (request):
     model = Snippet
     template_name = 'search_results.html'
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Snippet
-from .forms import SnippetForm
-from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView, ListView
 
-
+def search_snippets (request):
+    query = request.GET.get('search_string')
+    snippets = Snippet.objects.filter(Q(title__icontains=query))
+    return render(request, "snippets/list_snippets.html", {"snippets" : snippets})

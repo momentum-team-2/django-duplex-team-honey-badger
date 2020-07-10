@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
-from snippets import views as snippets_views
+import snippets.views as snippets_views
 
 
 urlpatterns = [
@@ -31,7 +31,7 @@ urlpatterns = [
     path('accounts/', include('registration.backends.simple.urls')),
     path('accounts/profile/', snippets_views.profile, name='profile'),
     path('', include('snippets.urls'))
-    
+    path('snippets/search/', snippets_views.search, name = 'search')
 ]
 
 if settings.DEBUG:
