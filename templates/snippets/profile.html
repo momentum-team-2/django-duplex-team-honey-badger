@@ -1,6 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Profile of {{ user.username }}</h1>
+<div class="green">
+    <h1>Profile of {{ user.username }}</h1>
+</div>
+{% load gravatar %}
+
+{% gravatar user.email 100 "user@example.com" 'br-100' %}
+<br>
+<br><a class="red" href="{% url 'list_snippets' %}">Snippets List</a><br>
+
+<br>
+{% for snippet in user.snippets.all %}
+<!-- <a href="{% url 'show_snippet' pk=snippet.pk %}">
+    <h2>{{ snippet.title }}</h2>
+</a> -->
+{% include "snippets/snippet_partial.html" with snippet=snippet %}
+{% endfor %}
+
+
+
+
 
 {% endblock %}
