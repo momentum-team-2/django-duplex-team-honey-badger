@@ -5,6 +5,9 @@
 <div class="green">
   <h1>All Snippets</h1>
 </div>
+<form action="{% url 'search_snippets' %} "class="list-sort-button second" method="GET">
+  <input name="search_string" type="text" placeholder="Search here">
+</form>
 
 <form action="{% url 'search_snippets' %} "class="list-sort-button second" method="GET">
   <input name="search_string" type="text" placeholder="Search here">
@@ -18,4 +21,5 @@
   {% include "snippets/snippet_partial.html" with snippet=snippet %}
   {% endfor %}
 </div>
+<br><a class="red" href="{% url 'list_snippets' %}">Snippets List</a><br>
 {% endblock %}
