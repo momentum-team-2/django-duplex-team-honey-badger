@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Edit Snippet</h1>
-
+<div class="green">
+  <h1>Edit Snippet</h1>
+</div>
 <div>
   <form action="{% url 'edit_snippet' pk=snippet.pk %}" method="POST">
     {% csrf_token %}
