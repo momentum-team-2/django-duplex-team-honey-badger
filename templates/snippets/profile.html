@@ -8,6 +8,9 @@
 
 {% gravatar user.email 100 "user@example.com" 'br-100' %}
 <br>
+<br><form action="{% url 'search_snippets' %} "class="list-sort-button second" method="GET">
+    <input name="search_string" type="text" placeholder="Search here">
+</form>
 <br><a class="red" href="{% url 'list_snippets' %}">Snippets List</a><br>
 
 <br>
